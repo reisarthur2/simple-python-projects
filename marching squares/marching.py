@@ -16,8 +16,7 @@ def func (a,b):
 		x,y=a,b
 	else:
 		x,y=a[0],a[1]
-	return x*x-y**0.5+2 #=0
-	#return x*y-y-8
+	return x*y-y**x+2 #=0
 
 #alterar pontos para mudar o tanto de pontos que cada linha e coluna
 #tera a partir do (0,0) para as quatro direcoes (total de (2*pontos)+1)

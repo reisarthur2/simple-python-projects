@@ -7,7 +7,7 @@
 from functools import reduce
 
 
-def vec_sum (u,v):
+def vec_sum (u: list,v: list):
     """
     u=list (u)
     for i in range (len(u)):
@@ -16,7 +16,7 @@ def vec_sum (u,v):
     """
     return list (map(lambda x,y:x+y,u,v))
 
-def vec_mult (u,a):
+def vec_mult (u: list,a: float):
     """
     u=list (u)
     for i in range (len(u)):
@@ -24,7 +24,7 @@ def vec_mult (u,a):
     return u
     """
     return list(map(lambda x: x*a,u))
-def vec_div (u,a):
+def vec_div (u: list,a: float):
     """
     u=list (u)
     if (a==0):
