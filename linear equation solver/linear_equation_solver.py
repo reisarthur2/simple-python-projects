@@ -2,38 +2,16 @@
 
 #v and u are lists that imitate a vector
 #a is just a float
-#some of the code is commented for me to remember old methods :(
 #the functions bellow are vector operations as their names suggests
 from functools import reduce
 
 
 def vec_sum (u: list,v: list):
-    """
-    u=list (u)
-    for i in range (len(u)):
-        u[i]+=v[i]
-    return u
-    """
     return list (map(lambda x,y:x+y,u,v))
 
 def vec_mult (u: list,a: float):
-    """
-    u=list (u)
-    for i in range (len(u)):
-        u[i]=u[i]*a
-    return u
-    """
     return list(map(lambda x: x*a,u))
 def vec_div (u: list,a: float):
-    """
-    u=list (u)
-    if (a==0):
-        return 1
-    else:
-        for i in range (len (u)):
-            u[i]/=a
-        return u
-    """
     return list(map(lambda x: x/a if a!=0 else 10**3,u))
 
 LL = []

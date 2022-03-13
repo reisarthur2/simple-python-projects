@@ -9,11 +9,10 @@ def vec_mult (u: list,a: float):
     return list(map(lambda x: x*a,u))
 def vec_div (u: list,a: float):
     return list(map(lambda x: x/a if a!=0 else 10**3,u))
-def vec_dot_excludingxindex (u: list,v,x):
+def vec_dot_excludingxindex (u: list,v: list,x: int):
     multipliedlist=list(map (lambda a,b: a*b,u,v))
     multipliedlist.pop(x)
     return reduce (lambda a,b: a+b,multipliedlist)
-print (vec_dot_excludingxindex([0,1,2,3],[0,1,2,3],3))
 LL = []
 a=open("determinant finder\determinant.txt","r")
 L = a.readline()
