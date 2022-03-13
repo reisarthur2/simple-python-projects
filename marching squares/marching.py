@@ -1,7 +1,6 @@
 from cmath import sin, sqrt
 from errno import EILSEQ
 import matplotlib.pyplot as plt
-import matplotlib
 from random import randint
 dx=0.01
 
@@ -17,7 +16,7 @@ def func (a,b):
 		x,y=a,b
 	else:
 		x,y=a[0],a[1]
-	return x*x+y*y-16
+	return x*x-y**0.5+2 #=0
 	#return x*y-y-8
 
 #alterar pontos para mudar o tanto de pontos que cada linha e coluna

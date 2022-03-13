@@ -1,31 +1,21 @@
-def vec_sum (a,b):
-    a=list (a)
-    for i in range (len(a)):
-        a[i]+=b[i]
-    return a
-def vec_mult (a,v):
-    a=list (a)
-    for i in range (len(a)):
-        a[i]=a[i]*v
-    return a
-def vec_div (a,x):
-    a=list (a)
-    if (x==0):
-        return 1
-    else:
-        for i in range (len (a)):
-            a[i]/=x
-        return a
-def prodvec_no0 (u,v,x):
-    suma=0
-    for i in range (0,len(u)):
-        if x==i:
-            continue
-        suma+=(u[i]*v[i])
-    return suma
+from functools import reduce
+
+#modify the determinant.txt with the matrix ixi
+
+#some vector operation functions
+def vec_sum (u: list,v: list):
+    return list (map(lambda x,y:x+y,u,v))
+def vec_mult (u: list,a: float):
+    return list(map(lambda x: x*a,u))
+def vec_div (u: list,a: float):
+    return list(map(lambda x: x/a if a!=0 else 10**3,u))
+def vec_dot_excludingxindex (u: list,v,x):
+    multipliedlist=list(map (lambda a,b: a*b,u,v))
+    multipliedlist.pop(x)
+    return reduce (lambda a,b: a+b,multipliedlist)
 
 LL = []
-a=open("determinante.txt","r")
+a=open("determinant finder\determinant.txt","r")
 L = a.readline()
 for i in range (len(L.split())):
     L = L.split()
@@ -37,7 +27,7 @@ tam=len(LL)
 tam_sqrt=int (tam**0.5)
 U={}
 L={}
-#print (tam_sqrt)
+
 for i in range (tam_sqrt):
     u,l=[],[]
     for j in range (tam_sqrt):
@@ -61,12 +51,12 @@ for x in range (tam):
     if  ((x%tam_sqrt)==0) and (x>=tam_sqrt):
         atuaU=0
     if  linhat!=linha:
-        L[linha][linhat]=(LL[x]-(prodvec_no0((L[linha]),(U[atuaU]),linhat) ) )/(U[linhat][linhat])
+        L[linha][linhat]=(LL[x]-(vec_dot_excludingxindex((L[linha]),(U[atuaU]),linhat) ) )/(U[linhat][linhat])
         linhat = linhat + 1
     else:
-        U[atuaU][linha]=(LL[x]-(prodvec_no0(U[atuaU],L[linha],linha)))/L[linha][linha]
+        U[atuaU][linha]=(LL[x]-(vec_dot_excludingxindex(U[atuaU],L[linha],linha)))/L[linha][linha]
     atuaU+=1
 determinante=1
 for y in range(tam_sqrt):
     determinante=(U[y][y])*determinante
-print('determinante =',determinante)
+print('determinant =',determinante)
